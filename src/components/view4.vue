@@ -27,12 +27,12 @@ export default {
 
 
 .view4 h1{
-font-family: Roboto-Light;
+font-family: 'Roboto';
 font-size: 48px;
 line-height: 57px;
 }
 .view4 p{
-  font-family: Roboto-Light;
+  font-family: 'Roboto';
   font-size: 24px;
   line-height: 28px;  
 }
