@@ -18,23 +18,24 @@ export default {
   name: "view4",
   props: {
     msg: String
+  },
+  mounted: function() {
+    setTimeout(() => {
+      this.$emit("goNext");
+    }, 5000);
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
-
-.view4 h1{
-font-family: 'Roboto';
-font-size: 48px;
-line-height: 57px;
+.view4 h1 {
+  font-size: 48px;
+  line-height: 57px;
 }
-.view4 p{
-  font-family: 'Roboto';
+.view4 p {
   font-size: 24px;
-  line-height: 28px;  
+  line-height: 28px;
 }
 img {
   border-radius: 50%;

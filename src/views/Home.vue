@@ -9,7 +9,7 @@
    <view1 v-else-if="currentView===1" @goNext="changeView(2)"/>
    <view2 v-else-if="currentView===2"/>
    <view3 v-else-if="currentView===3"/>
-   <view4 v-else-if="currentView===4"/>
+   <view4 v-else-if="currentView===4" @goNext="changeView(0)"/>
   </div>
 </template>
 
