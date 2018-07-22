@@ -23,7 +23,6 @@
       </div>
       <input id="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
     </form>
-    <pre>{{mail}}</pre>
   </div>
 </template>
 
@@ -119,7 +118,7 @@ input::placeholder {
   padding: 12px 20px;
 }
 #button {
-  background: #bee1ff;
+  background: #3375d8;
   border: 0;
   width: 100%;
   height: 52px;
@@ -128,5 +127,9 @@ input::placeholder {
   font-family: "Roboto" !important;
   font-size: 20px;
   color: white;
+  cursor: pointer;
+}
+#button[disabled] {
+  background: #bee1ff;
 }
 </style>
