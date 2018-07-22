@@ -6,8 +6,9 @@
       Now you're one of us!
     </p>
     <form>
-      <img src="http://via.placeholder.com/200x200">
-      <a href="#"><i>Redirected to homepage after 5 secconds...</i></a>
+      <div><img src="../assets/facebook.png"></div>
+      <div class="redirected-link"><a href="#" ><i>Redirected to homepage after 5 secconds...</i></a></div>
+      
     </form>
   </div>
 </template>
@@ -23,4 +24,25 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+
+.view4 h1{
+font-family: Roboto-Light;
+font-size: 48px;
+line-height: 57px;
+}
+.view4 p{
+  font-family: Roboto-Light;
+  font-size: 24px;
+  line-height: 28px;  
+}
+img {
+  border-radius: 50%;
+}
+.redirected-link {
+  font-family: Roboto-Italic;
+  font-size: 20px;
+  color: #0275d8;
+  margin-top: 25px;
+}
 </style>

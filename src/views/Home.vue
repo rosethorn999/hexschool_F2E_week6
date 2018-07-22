@@ -43,6 +43,9 @@ export default {
 };
 </script>
 <style>
+* {
+  text-decoration: none;
+}
 pre {
   font-size: 2rem;
   background-color: cadetblue;
