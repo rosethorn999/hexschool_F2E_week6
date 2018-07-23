@@ -7,7 +7,7 @@
    <a href="#" @click="changeView(4)">view4</a>
    <view0 v-if="currentView===0" @goNext="changeView(1)"/>
    <view1 v-else-if="currentView===1" @goNext="changeView(2)"/>
-   <view2 v-else-if="currentView===2"/>
+   <view2 v-else-if="currentView===2" @goNext="changeView(3)"/>
    <view3 v-else-if="currentView===3" @goNext="changeView(4)"/>
    <view4 v-else-if="currentView===4" @goNext="changeView(0)"/>
   </div>

@@ -118,7 +118,7 @@ input::placeholder {
   padding: 12px 20px;
 }
 #button {
-  background: #BDE0FD;
+  background: #0275d8;
   border: 0;
   width: 100%;
   height: 52px;
