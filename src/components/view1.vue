@@ -5,18 +5,18 @@
     <p>
       Tell us who you are!
     </p>
-    <form>
-      <div class="form-group">
-        <label>Name(optional)</label>
+    <form class="form-area">
+      <div class="form-group" id="form-group-email">
+        <label class="label-title">Name(optional)</label>
         <input type="text" placeholder="example@eamil.com" v-model="name"/>
       </div>
-      <div class="form-group">
-        <label>Phone</label>
+      <div class="form-group" id="form-group-telphone">
+        <label class="label-title">Phone</label>
         <input type="telphone" placeholder="0912345678" v-model="telphone"/>
         <div class="alarm" v-show="telphoneError">NUMBER ONLY</div>
       </div>
-      <div class="form-group">
-        <label>Birth Date(optional)</label>
+      <div class="form-group" id="form-group-birthday">
+        <label class="label-title">Birth Date(optional)</label>
         <select v-model="YYYY">
             <option v-for="(YYYY,index) in YYYYs" :key="index">{{YYYY}}</option>
         </select>
@@ -27,8 +27,8 @@
             <option v-for="(DD,index) in 31" :key="index">{{DD}}</option>
         </select>
       </div>
-       <div class="form-group">
-        <label>Address</label>
+       <div class="form-group" id="form-group-address">
+        <label class="label-title">Address</label>
         <select v-model="city">
             <option v-for="(city,index) in citys" :key="index" :value="index">{{city}}</option>
         </select>
@@ -38,7 +38,7 @@
         <input type="text" v-model="address" placeholder="detail address"/>
          <div class="alarm" v-show="addressError">REQUIRED FILED</div>
       </div>
-      <input type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
+      <input id="button"  type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
     </form>
   </div>
 </template>
@@ -123,8 +123,102 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.form-area {
+  text-align: start;
+  width: 30%;
+  margin: auto;
+}
 .alarm {
   display: inline;
   background-color: #f5a623;
+}
+.view1 h1 {
+  margin-top: 54px;
+  font-family: "Roboto";
+  font-size: 48px;
+  line-height: 0;
+}
+.view1 p {
+  font-family: "Roboto";
+  font-size: 24px;
+}
+.form-group {
+  margin-bottom: 24px;
+}
+#form-group-email {
+  float: left;
+  width: 50%;
+}
+
+input,
+select {
+  font-size: 20px;
+  color: #999999;
+  letter-spacing: 0;
+  text-align: left;
+  line-height: 24px;
+}
+#form-group-email input {
+  width: 75%;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 12px 20px 16px;
+}
+#form-group-telphone {
+  float: right;
+  width: 50%;
+}
+#form-group-telphone input {
+  width: 75%;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 12px 20px 16px;
+}
+
+#form-group-birthday select {
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 12px 20px 16px;
+  width: 30%;
+}
+.label-title {
+  display: block;
+  padding: 8px 0;
+  font-size: 20px;
+  color: #000000;
+  letter-spacing: 0;
+}
+#form-group-address select {
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 12px 20px 16px;
+  margin-bottom: 24px;
+  width: 50%;
+}
+#form-group-address input {
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 12px 20px 16px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#button {
+  background: #bde0fd;
+  border: 0;
+  width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  margin-top: 40px;
+  font-family: "Roboto" !important;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
 }
 </style>
