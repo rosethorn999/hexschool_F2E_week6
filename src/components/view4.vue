@@ -1,5 +1,6 @@
 <template>
   <div class="view4">
+    <pre>::view4::</pre>
     <h1>Congratulations</h1>
     <p>
       Now you're one of us!

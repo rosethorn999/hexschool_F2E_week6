@@ -1,5 +1,6 @@
 <template>
   <div class="view0">
+    <pre>::view0::</pre>
     <h1>Create Account</h1>
     <p>
       Glad to see you here!
@@ -20,7 +21,7 @@
         <input id="input-password2" type="password" placeholder="password" v-model="password2"/>
         <div class="alarm" v-show="password2Error">NOT MATCH</div>
       </div>
-      <input class="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
+      <input id="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
     </form>
   </div>
 </template>
@@ -115,5 +116,20 @@ input::placeholder {
   font-size: 20px;
   box-sizing: border-box;
   padding: 12px 20px;
+}
+#button {
+  background: #BDE0FD;
+  border: 0;
+  width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  margin-top: 40px;
+  font-family: "Roboto" !important;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+#button[disabled] {
+  background: #bee1ff;
 }
 </style>
