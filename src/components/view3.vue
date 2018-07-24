@@ -5,24 +5,24 @@
     <p>
       Add your credit cared information!
     </p>
-    <form>
-      <div class="form-group">
+    <form class="form-area">
+      <div class="form-group" id="form-group-CardNum">
         <label>Card Number</label>
         <input type="text"  v-model="cardNumber" placeholder="1234567890123456"/>
         <label>{{binCode}}</label>
         <div class="alarm" v-show="cardNumberError">REQUIRED FIELD</div>
       </div>
-      <div class="form-group">
+      <div class="form-group" id="form-group-Cardholder">
         <label>Cardholder Name</label>
         <input type="text" v-model="cardHolder" placeholder="Elon Musk"/>
         <div class="alarm" v-show="cardHolderError">REQUIRED FIELD</div>
       </div>
-      <div class="form-group">
+      <div class="form-group" id="form-group-Bank">
         <label>Bank Name</label>
         <input type="text" v-model="bankName"  placeholder="City Group"/>
          <div class="alarm" v-show="bankNameError">REQUIRED FIELD</div>
       </div>
-      <div class="form-group">
+      <div class="form-group" id="form-group-CVV">
         <label>CVV</label>
         <input type="text" v-model="CVV" placeholder="123"/>
         <div class="alarm" v-show="CVVError">MUST BE 3 CHARACTERS</div>
@@ -35,7 +35,7 @@
             <option v-for="(DD,index) in 31" :key="index">{{DD}}</option>
         </select>
       </div>
-      <input type="button" value="DONE" :disabled="formError" @click="send">
+      <input id="button" type="button" value="DONE" :disabled="formError" @click="send">
     </form>
   </div>
 </template>
@@ -131,5 +131,72 @@ export default {
 .alarm {
   display: inline;
   background-color: #f5a623;
+}
+
+.view3 h1 {
+  margin-top: 54px;
+  font-family: "Roboto";
+  font-size: 48px;
+  line-height: 0;
+}
+.view3 p {
+  font-family: "Roboto";
+  font-size: 24px;
+}
+
+.form-area {
+  text-align: start;
+  width: 30%;
+  margin: auto;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 20px;
+  color: #000000;
+  letter-spacing: 0;
+}
+.form-group input,
+.form-group select {
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 12px 20px 16px;
+  font-size: 20px;
+  color: #999999;
+  letter-spacing: 0;
+  text-align: left;
+  line-height: 24px;
+}
+#form-group-CardNum {
+  box-sizing: border-box;
+}
+#form-group-CardNum input {
+  width: 100%;
+}
+#form-group-Cardholder input,
+#form-group-Bank input {
+}
+
+#form-group-Cardholder {
+  float: left;
+}
+#form-group-Bank {
+  /* float: right; */
+}
+.form-group-CVV{
+  float: left;
+}
+#button {
+  background: #bde0fd;
+  border: 0;
+  width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  margin-top: 40px;
+  font-family: "Roboto" !important;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
 }
 </style>
