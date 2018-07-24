@@ -1,6 +1,5 @@
 <template>
   <div class="view2">
-    <pre>::view2::</pre>
     <h1>Update Profile Picture</h1>
     <p>
       We wanna know you more!

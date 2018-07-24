@@ -1,6 +1,5 @@
 <template>
   <div class="view1">
-    <pre>::view1::</pre>
     <h1>General Infomation</h1>
     <p>
       Tell us who you are!

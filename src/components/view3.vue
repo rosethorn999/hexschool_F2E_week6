@@ -1,6 +1,5 @@
 <template>
   <div class="view3">
-    <pre>::view3::</pre>
     <h1>Payment Method</h1>
     <p>
       Add your credit cared information!

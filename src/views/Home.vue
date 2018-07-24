@@ -5,6 +5,8 @@
    <a href="#" @click="changeView(2)">view2</a>/
    <a href="#" @click="changeView(3)">view3</a>/
    <a href="#" @click="changeView(4)">view4</a>
+   <pre>::veiw{{currentView}}::</pre>
+   <statebar :states="states"></statebar>
    <view0 v-if="currentView===0" @goNext="changeView(1)"/>
    <view1 v-else-if="currentView===1" @goNext="changeView(2)"/>
    <view2 v-else-if="currentView===2" @goNext="changeView(3)"/>
@@ -15,6 +17,7 @@
 
 <script>
 // @ is an alias to /src
+import statebar from "@/components/stateBar.vue";
 import view0 from "@/components/view0.vue";
 import view1 from "@/components/view1.vue";
 import view2 from "@/components/view2.vue";
@@ -24,6 +27,7 @@ import view4 from "@/components/view4.vue";
 export default {
   name: "home",
   components: {
+    statebar,
     view0,
     view1,
     view2,
@@ -35,6 +39,24 @@ export default {
       currentView: 0
     };
   },
+  computed: {
+    states: function() {
+      let ret = [];
+      let v = this.currentView;
+      for (let i = 0; i < 5; i++) {
+        if (i < v) {
+          ret.push(1);
+        } else if (i > v) {
+          ret.push(-1);
+        } else {
+          ret.push(0);
+        }
+      }
+
+      return ret;
+    }
+  },
+
   methods: {
     changeView: function(i) {
       this.currentView = i;

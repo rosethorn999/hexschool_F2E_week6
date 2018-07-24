@@ -1,6 +1,5 @@
 <template>
   <div class="view0">
-    <pre>::view0::</pre>
     <h1>Create Account</h1>
     <p>
       Glad to see you here!
