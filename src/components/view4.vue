@@ -6,8 +6,13 @@
     </p>
     <form>
       <div><img src="../assets/facebook.png"></div>
-      <div class="redirected-link"><a href="#" ><i>Redirected to homepage after 5 secconds...</i></a></div>
-      
+      <div class="redirected-link">
+        <a href="#">
+          <i>Redirected to homepage after </i>
+          <i>{{counter}}</i>
+          <i> secconds...</i>
+        </a>
+      </div>      
     </form>
   </div>
 </template>
@@ -15,10 +20,16 @@
 <script>
 export default {
   name: "view4",
-  props: {
-    msg: String
+  props: {},
+  data: function() {
+    return {
+      counter: 5
+    };
   },
   mounted: function() {
+    setInterval(() => {
+      this.counter -= 1;
+    }, 1000);
     setTimeout(() => {
       this.$emit("goNext");
     }, 5000);
