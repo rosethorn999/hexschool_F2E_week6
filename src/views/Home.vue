@@ -50,5 +50,21 @@ pre {
   font-size: 2rem;
   background-color: cadetblue;
 }
+.button {
+  text-align: center;
+  background: #0275d8;
+  border: 0;
+  width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  margin-top: 40px;
+  font-family: "Roboto" !important;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+}
+.button[disabled] {
+  background: #bee1ff;
+}
 </style>
 

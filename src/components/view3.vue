@@ -29,13 +29,14 @@
       </div>
       <div class="form-group">
         <label>Expire Date</label>
-        <select>
-            <option v-for="(MM,index) in 12" :key="index">{{MM}}</option>
-        </select> <select>
-            <option v-for="(DD,index) in 31" :key="index">{{DD}}</option>
+        <select v-model="eMM">
+            <option v-for="(MM,index) in MMs" :key="index">{{MM}}</option>
+        </select>
+        <select v-model="eYY">
+            <option v-for="(YY,index) in YYs" :key="index">{{YY}}</option>
         </select>
       </div>
-      <input type="button" value="DONE" :disabled="formError" @click="send">
+      <input class="button" type="button" value="DONE" :disabled="formError" @click="send">
     </form>
   </div>
 </template>
@@ -52,8 +53,23 @@ export default {
       cardHolder: "",
       bankName: "",
       CVV: "",
-      MM: 1,
-      YY: 1
+      eMM: "01",
+      eYY: "18",
+      MMs: [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "07",
+        "08",
+        "09",
+        "10",
+        "11",
+        "12"
+      ],
+      YYs: ["18", "19", "20", "21", "22", "23", "24", "25"]
     };
   },
   computed: {

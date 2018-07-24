@@ -17,12 +17,12 @@
       <input id="alarmButton" type="button" v-show="isOverSize" value="ONE FILE IS OVER THE MAXIMUM SIZE">
       
       <div class="preview">
-        <img id="preview0" src="http://via.placeholder.com/50x50">
-        <img id="preview1" src="http://via.placeholder.com/50x50">
-        <img id="preview2" src="http://via.placeholder.com/50x50">
+        <img id="preview0" src="http://via.placeholder.com/140x140">
+        <img id="preview1" src="http://via.placeholder.com/140x140">
+        <img id="preview2" src="http://via.placeholder.com/140x140">
       </div>
 
-      <input id="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
+      <input class="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
     </form>
   </div>
 </template>
@@ -150,22 +150,6 @@ export default {
 .preview img:hover {
   opacity: 0.8;
 }
-#button[disabled] {
-  background: #bee1ff;
-}
-#button {
-  background: #0275d8;
-  border: 0;
-  width: 100%;
-  height: 52px;
-  border-radius: 8px;
-  margin-top: 40px;
-  font-family: "Roboto" !important;
-  font-size: 20px;
-  color: white;
-  cursor: pointer;
-}
-
 #alarmButton {
   background: #f5a623;
   border: 0;

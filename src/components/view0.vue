@@ -21,7 +21,7 @@
         <input id="input-password2" type="password" placeholder="password" v-model="password2"/>
         <div class="alarm" v-show="password2Error">NOT MATCH</div>
       </div>
-      <input id="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
+      <input class="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
     </form>
   </div>
 </template>
@@ -116,20 +116,5 @@ input::placeholder {
   font-size: 20px;
   box-sizing: border-box;
   padding: 12px 20px;
-}
-#button {
-  background: #0275d8;
-  border: 0;
-  width: 100%;
-  height: 52px;
-  border-radius: 8px;
-  margin-top: 40px;
-  font-family: "Roboto" !important;
-  font-size: 20px;
-  color: white;
-  cursor: pointer;
-}
-#button[disabled] {
-  background: #bee1ff;
 }
 </style>

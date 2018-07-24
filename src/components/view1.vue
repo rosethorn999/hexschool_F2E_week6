@@ -6,7 +6,7 @@
       Tell us who you are!
     </p>
     <form class="form-area">
-      <div class="form-group" id="form-group-email">
+      <div class="form-group" id="form-group-name">
         <label class="label-title">Name(optional)</label>
         <input type="text" placeholder="example@eamil.com" v-model="name"/>
       </div>
@@ -38,7 +38,7 @@
         <input type="text" v-model="address" placeholder="detail address"/>
          <div class="alarm" v-show="addressError">REQUIRED FILED</div>
       </div>
-      <input id="button"  type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
+      <input class="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
     </form>
   </div>
 </template>
@@ -145,20 +145,12 @@ export default {
 .form-group {
   margin-bottom: 24px;
 }
-#form-group-email {
+#form-group-name {
   float: left;
   width: 50%;
 }
 
-input,
-select {
-  font-size: 20px;
-  color: #999999;
-  letter-spacing: 0;
-  text-align: left;
-  line-height: 24px;
-}
-#form-group-email input {
+#form-group-name input {
   width: 75%;
   background: #ffffff;
   border: 2px solid #000000;
@@ -176,13 +168,15 @@ select {
   border-radius: 8px;
   padding: 12px 20px 16px;
 }
-
-#form-group-birthday select {
+select {
   background: #ffffff;
   border: 2px solid #000000;
   border-radius: 8px;
   padding: 12px 20px 16px;
-  width: 30%;
+  height: 47px;
+}
+#form-group-birthday select {
+  width: 33%;
 }
 .label-title {
   display: block;
@@ -207,18 +201,5 @@ select {
   display: block;
   width: 100%;
   box-sizing: border-box;
-}
-
-#button {
-  background: #bde0fd;
-  border: 0;
-  width: 100%;
-  height: 52px;
-  border-radius: 8px;
-  margin-top: 40px;
-  font-family: "Roboto" !important;
-  font-size: 20px;
-  color: white;
-  cursor: pointer;
 }
 </style>
