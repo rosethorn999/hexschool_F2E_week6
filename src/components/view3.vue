@@ -26,12 +26,12 @@
         <input type="text" v-model="CVV" placeholder="123"/>
         <div class="alarm" v-show="CVVError">MUST BE 3 CHARACTERS</div>
       </div>
-      <div class="form-group">
+      <div class="form-group" id="form-group-Date">
         <label>Expire Date</label>
-        <select v-model="eMM">
+        <select v-model="eMM" id="form-group-Date-MM">
             <option v-for="(MM,index) in MMs" :key="index">{{MM}}</option>
         </select>
-        <select v-model="eYY">
+        <select v-model="eYY" id="form-group-Date-YY">
             <option v-for="(YY,index) in YYs" :key="index">{{YY}}</option>
         </select>
       </div>
@@ -144,8 +144,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .alarm {
-  display: inline;
+  display: block;
   background-color: #f5a623;
+  width: 125px;
 }
 
 .view3 h1 {
@@ -182,6 +183,7 @@ export default {
   letter-spacing: 0;
   text-align: left;
   line-height: 24px;
+  box-sizing: border-box;
 }
 #form-group-CardNum {
   box-sizing: border-box;
@@ -189,18 +191,36 @@ export default {
 #form-group-CardNum input {
   width: 100%;
 }
-#form-group-Cardholder input,
-#form-group-Bank input {
-}
 
 #form-group-Cardholder {
-  float: left;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 45%;
+  margin-right: 5%;
 }
 #form-group-Bank {
-  /* float: right; */
+  box-sizing: border-box;
+  display: inline-block;
+  width: 50%;
 }
-.form-group-CVV {
+#form-group-Cardholder input {
+  /*margin-right: 5px;*/
+  width: 100%;
+}
+#form-group-Bank input {
+  /*margin-left: 5px;*/
+  width: 100%;
+}
+#form-group-CVV {
   float: left;
+  width: 32%;
+  margin-right: 6px;
+}
+#form-group-CVV input {
+  width: 100%;
+}
+#form-group-Date select {
+  width: 33%;
 }
 #button {
   background: #bde0fd;

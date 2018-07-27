@@ -1,5 +1,6 @@
 <template>
   <div class="view1">
+    <pre>::view1::</pre>
     <h1>General Infomation</h1>
     <p>
       Tell us who you are!
@@ -16,13 +17,13 @@
       </div>
       <div class="form-group" id="form-group-birthday">
         <label class="label-title">Birth Date(optional)</label>
-        <select v-model="YYYY">
+        <select class="birthday-yyyy" v-model="YYYY">
             <option v-for="(YYYY,index) in YYYYs" :key="index">{{YYYY}}</option>
         </select>
-        <select>
+        <select class="birthday-mm">
             <option v-for="(MM,index) in 12" :key="index">{{MM}}</option>
         </select>
-        <select>
+        <select class="birthday-dd">
             <option v-for="(DD,index) in 31" :key="index">{{DD}}</option>
         </select>
       </div>
@@ -149,33 +150,53 @@ export default {
   width: 50%;
 }
 
+input,
+select {
+  font-size: 20px;
+  color: #999999;
+  letter-spacing: 0;
+  text-align: left;
+  line-height: 24px;
+}
 #form-group-name input {
-  width: 75%;
+  width: 100%;
   background: #ffffff;
   border: 2px solid #000000;
   border-radius: 8px;
   padding: 12px 20px 16px;
+  margin-right: 15px;
+  box-sizing: border-box;
 }
 #form-group-telphone {
   float: right;
   width: 50%;
 }
 #form-group-telphone input {
-  width: 75%;
+  width: 100%;
   background: #ffffff;
   border: 2px solid #000000;
   border-radius: 8px;
   padding: 12px 20px 16px;
+  margin-left: 15px;
+  box-sizing: border-box;
 }
-select {
-  background: #ffffff;
-  border: 2px solid #000000;
-  border-radius: 8px;
-  padding: 12px 20px 16px;
-  height: 47px;
-}
+
 #form-group-birthday select {
-  width: 33%;
+  background: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  padding: 12px 20px 16px;
+  width: 30.9%;;
+}
+.birthday-yyyy {
+  margin-right: 10px;
+}
+.birthday-mm {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.birthday-dd {
+  margin-left: 10px;
 }
 .label-title {
   display: block;
@@ -200,5 +221,18 @@ select {
   display: block;
   width: 100%;
   box-sizing: border-box;
+}
+
+#button {
+  background: #bde0fd;
+  border: 0;
+  width: 100%;
+  height: 52px;
+  border-radius: 8px;
+  margin-top: 40px;
+  font-family: "Roboto" !important;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
 }
 </style>
