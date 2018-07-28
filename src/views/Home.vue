@@ -1,11 +1,5 @@
 <template>
   <div class="home">
-   <a href="#" @click="changeView(0)">view0</a>/
-   <a href="#" @click="changeView(1)">view1</a>/
-   <a href="#" @click="changeView(2)">view2</a>/
-   <a href="#" @click="changeView(3)">view3</a>/
-   <a href="#" @click="changeView(4)">view4</a>
-   <pre>::veiw{{currentView}}::</pre>
    <statebar :states="states"></statebar>
    <view0 v-if="currentView===0" @goNext="changeView(1)"/>
    <view1 v-else-if="currentView===1" @goNext="changeView(2)"/>

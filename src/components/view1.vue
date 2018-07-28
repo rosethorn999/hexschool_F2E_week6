@@ -1,6 +1,5 @@
 <template>
   <div class="view1">
-    <pre>::view1::</pre>
     <h1>General Infomation</h1>
     <p>
       Tell us who you are!
@@ -186,7 +185,7 @@ select {
   border: 2px solid #000000;
   border-radius: 8px;
   padding: 12px 20px 16px;
-  width: 30.9%;;
+  width: 30.9%;
 }
 .birthday-yyyy {
   margin-right: 10px;
