@@ -5,22 +5,23 @@
       We wanna know you more!
     </p>
     <form class="form-area">
-      <div class="upload-up-area" :class="{draging:onDragover}" @drop="drop($event)" @dragover="allowDrop($event)" @dragleave="dragleave($event)">
-          <img src="http://via.placeholder.com/150x150">
+      <div class="upload-up-area" :class="{draging:onDragover}" @drop="drop($event)" @dragover="dragover($event)" @dragleave="dragleave($event)">
+          <i class="fas fa-images"></i>
+          <input type="file" id="files" multiple @change="drop"/>
           <div class="txt-area">          
-            <span>UPLOAD UP TO 3 PHOTOS</span>
-            <span>MAXIMUM SIZE: 150*150px</span>
+            <label for="files">UPLOAD UP TO 3 PHOTOS</label>
+            <label for="files">MAXIMUM SIZE: 150*150px</label>
           </div>         
       </div>
-
-      <input id="alarmButton" type="button" v-show="isOverSize" value="ONE FILE IS OVER THE MAXIMUM SIZE">
       
-      <div class="preview">
-        <img id="preview0" src="http://via.placeholder.com/140x140">
-        <img id="preview1" src="http://via.placeholder.com/140x140">
-        <img id="preview2" src="http://via.placeholder.com/140x140">
-      </div>
-
+      <input id="alarmButton" type="button" v-show="isOverSizeFull" value="ONE FILE IS OVER THE MAXIMUM SIZE">
+      
+      <div class="previewContainer">
+        <div class="previewBox" v-for="item in [0,1,2]" :key="item"> 
+          <img :id="'preview'+item" src="http://via.placeholder.com/140x140">
+          <div class="previewRemove" @click="removePreview(item)"><i class="fas fa-trash-alt"></i></div>
+        </div>          
+      </div>      
       <input class="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
     </form>
   </div>
@@ -29,61 +30,88 @@
 <script>
 export default {
   name: "view2",
-  props: {
-    msg: String
-  },
   data: function() {
     return {
       indexOfImage: 0,
-      isOverSize: false,
+      isOverSize: [false, false, false],
       onDragover: false
     };
   },
   computed: {
     formError: function() {
-      return this.indexOfImage === 0 || this.isOverSize;
+      return this.indexOfImage === 0 || this.isOverSizeFull;
+    },
+    isOverSizeFull: function() {
+      for (let i = 0; i < this.isOverSize.length; i++) {
+        if (this.isOverSize[i]) {
+          return true;
+        }
+      }
+      return false;
     }
   },
   methods: {
+    removePreview: function(i) {
+      this.$set(this.isOverSize, i, false);
+      document.querySelector("#preview" + i).src =
+        "http://via.placeholder.com/140x140";
+    },
     send: function() {
       this.$emit("goNext");
     },
     drop: function(event) {
-      this.onDragover = false;
-      this.indexOfImage = 0;
-      this.isOverSize = false;
       let that = this;
+      for (let i = 0; i < 3; i++) {
+        this.removePreview(i);
+      }
+      this.indexOfImage = 0;
+      this.onDragover = false;
+      event.stopPropagation();
       event.preventDefault();
-      var dt = event.dataTransfer;
-      var files = dt.files;
-      for (var i = 0; i < files.length; i++) {
-        var file = files[i];
+
+      let files;
+      let eventType = event.type;
+      //用按的 change 用拖曳的 drop
+      if (eventType === "change") {
+        files = event.target.files; // FileList object
+      } else if (eventType === "drop") {
+        files = event.dataTransfer.files; // FileList object
+      }
+
+      for (var i = 0, f; (f = files[i]); i++) {
+        if (!f.type.match("image.*")) {
+          // Only process image files.
+          continue;
+        }
+
+        //get preview
         var reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.addEventListener(
-          "loadend",
-          function(e) {
-            var bin = this.result;
-            var img = document.createElement("img");
-            img.file = file;
-            img.src = bin;
-            // console.log(that.isOverSize);
-            if (that.isOverSize === false) {
-              let tooBig = img.naturalWidth > 150 || img.naturalHeight > 150;
-              console.log(img.width + "," + img.height);
-              if (tooBig) {
-                that.isOverSize = tooBig;
-              }
-            }
-            // document.querySelector(".preview").appendChild(img);
-            document.querySelector("#preview" + that.indexOfImage).src = bin;
+        reader.onload = (function(theFile) {
+          return function(e) {
+            document.querySelector("#preview" + that.indexOfImage).src =
+              e.target.result;
             that.indexOfImage++;
-          },
-          false
-        );
+            if (that.indexOfImage === 3) {
+              that.indexOfImage = 0;
+            }
+          };
+        })(f);
+        reader.readAsDataURL(f);
+
+        //get size
+        let img = new Image();
+        var _URL = window.URL || window.webkitURL;
+        img.attributes.imgIndex = i;
+        img.src = _URL.createObjectURL(f);
+        img.onload = function(e) {
+          const w = this.width;
+          const h = this.height;
+          const imgIndex = this.attributes.imgIndex;
+          that.$set(that.isOverSize, imgIndex, w > 150 && h > 150);
+        };
       }
     },
-    allowDrop: function(event) {
+    dragover: function(event) {
       this.onDragover = true;
       event.preventDefault();
     },
@@ -120,7 +148,8 @@ export default {
   border: 2px dotted #f5a623;
   border-radius: 8px;
 }
-.upload-up-area img {
+.upload-up-area i {
+  font-size: 45px;
   width: 58px;
   height: 45px;
   margin: 48px 20px 47px 69px;
@@ -129,25 +158,49 @@ export default {
 .txt-area {
   margin: 46px 78px 46px 20px;
 }
-.txt-area span {
+input[type="file"] {
+  display: none;
+}
+.txt-area label {
   display: block;
   font-size: 20px;
   color: #9b9b9b;
   line-height: 24px;
 }
-.preview {
+.previewContainer {
   margin-top: 24px;
   text-align: center;
 }
-.preview img {
+.previewBox {
+  display: inline-block;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+.previewRemove {
+  position: relative;
+  background: #0275d8;
+  border-radius: 8px;
+  height: 40px;
+  bottom: 40px;
+  font-size: 20px;
+  line-height: 40px;
+  box-sizing: border-box;
+  opacity: 0;
+  color: #fff;
+}
+
+.previewBox img {
   box-sizing: border-box;
   height: 140px;
   width: 140px;
   margin: 1%;
   border-radius: 8px;
 }
-.preview img:hover {
+.previewBox:hover {
   opacity: 0.8;
+}
+.previewBox:hover .previewRemove {
+  opacity: 1;
 }
 #alarmButton {
   background: #f5a623;
