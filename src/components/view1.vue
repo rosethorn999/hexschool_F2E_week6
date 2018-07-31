@@ -149,7 +149,9 @@ export default {
   width: 50%;
 }
 
-input,
+#form-group-name input,
+#form-group-telphone input,
+#form-group-address input,
 select {
   font-size: 20px;
   color: #999999;
@@ -186,6 +188,7 @@ select {
   border-radius: 8px;
   padding: 12px 20px 16px;
   width: 30.9%;
+  -webkit-appearance:none;
 }
 .birthday-yyyy {
   margin-right: 10px;
@@ -222,16 +225,4 @@ select {
   box-sizing: border-box;
 }
 
-#button {
-  background: #bde0fd;
-  border: 0;
-  width: 100%;
-  height: 52px;
-  border-radius: 8px;
-  margin-top: 40px;
-  font-family: "Roboto" !important;
-  font-size: 20px;
-  color: white;
-  cursor: pointer;
-}
 </style>

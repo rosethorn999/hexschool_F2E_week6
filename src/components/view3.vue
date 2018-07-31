@@ -218,20 +218,10 @@ export default {
 }
 #form-group-CVV input {
   width: 100%;
+  -webkit-appearance:none;
 }
 #form-group-Date select {
   width: 33%;
-}
-#button {
-  background: #bde0fd;
-  border: 0;
-  width: 100%;
-  height: 52px;
-  border-radius: 8px;
-  margin-top: 40px;
-  font-family: "Roboto" !important;
-  font-size: 20px;
-  color: white;
-  cursor: pointer;
+  -webkit-appearance:none;
 }
 </style>
