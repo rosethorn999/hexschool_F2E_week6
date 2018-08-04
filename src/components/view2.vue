@@ -135,11 +135,7 @@ export default {
   font-family: "Roboto";
   font-size: 24px;
 }
-.form-area {
-  text-align: start;
-  width: 30%;
-  margin: auto;
-}
+
 .upload-up-area {
   border: 2px solid #000;
   border-radius: 8px;

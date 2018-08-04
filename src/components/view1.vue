@@ -122,11 +122,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.form-area {
-  text-align: start;
-  width: 30%;
-  margin: auto;
-}
 .alarm {
   display: inline;
   background-color: #f5a623;

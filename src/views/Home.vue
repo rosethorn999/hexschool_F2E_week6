@@ -62,9 +62,20 @@ export default {
 * {
   text-decoration: none;
 }
-pre {
-  font-size: 2rem;
-  background-color: cadetblue;
+.form-area {
+  text-align: start;
+  width: 40%;
+  margin: auto;
+}
+@media only screen and (max-width: 1200px) {
+  .form-area {
+    width: 60%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .form-area {
+    width: 95%;
+  }
 }
 .button {
   text-align: center;

@@ -93,11 +93,7 @@ export default {
   display: inline;
   background-color: #f5a623;
 }
-.form-area {
-  text-align: start;
-  width: 30%;
-  margin: auto;
-}
+
 .form-group label {
   display: block;
   font-size: 20px;

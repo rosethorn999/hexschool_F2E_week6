@@ -160,11 +160,6 @@ export default {
   font-size: 24px;
 }
 
-.form-area {
-  text-align: start;
-  width: 30%;
-  margin: auto;
-}
 .form-group label {
   display: block;
   margin-bottom: 8px;
