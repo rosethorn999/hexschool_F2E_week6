@@ -82,5 +82,8 @@ pre {
 .button[disabled] {
   background: #bee1ff;
 }
+select {
+  -webkit-appearance: none;
+}
 </style>
 

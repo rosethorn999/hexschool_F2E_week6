@@ -218,10 +218,8 @@ export default {
 }
 #form-group-CVV input {
   width: 100%;
-  -webkit-appearance:none;
 }
 #form-group-Date select {
   width: 33%;
-  -webkit-appearance:none;
 }
 </style>

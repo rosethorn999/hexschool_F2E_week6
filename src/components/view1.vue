@@ -188,7 +188,6 @@ select {
   border-radius: 8px;
   padding: 12px 20px 16px;
   width: 30.9%;
-  -webkit-appearance:none;
 }
 .birthday-yyyy {
   margin-right: 10px;
@@ -224,5 +223,4 @@ select {
   width: 100%;
   box-sizing: border-box;
 }
-
 </style>
