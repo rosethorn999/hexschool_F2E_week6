@@ -7,20 +7,21 @@
     <form class="form-area">
       <div class="form-group">
         <label>Account</label>
-        <div class="emailDiv"><input id="input-email" type="email" placeholder="example@eamil.com" v-model="mail"/>
-        <!-- <i class="far fa-angry"></i> -->
+        <div :class="{emailDiv:mailError}">
+          <input id="input-email" type="email" placeholder="example@eamil.com" v-model="mail"/>
         </div>
-        <!-- <div class="alarm" v-show="mailError">INVALID EMAIL</div> -->
       </div>
       <div class="form-group">
         <label>Password</label>
-        <div class="passwordDiv"><input id="input-password" type="password" placeholder="password" v-model="password"/></div>
-        <!-- <div class="alarm" v-show="passwordError">MINIMUM 8 CHARACTERS</div> -->
+        <div :class="{passwordDiv:passwordError}">
+          <input id="input-password" type="password" placeholder="password" v-model="password"/>
+        </div>
       </div>
       <div class="form-group">
         <label>Comfirm Password</label>
-        <div class="password2Div"><input id="input-password2" type="password" placeholder="password" v-model="password2"/></div>
-        <!-- <div class="alarm" v-show="password2Error">NOT MATCH</div> -->
+        <div :class="{passwordDiv:password2Error}">
+          <input id="input-password2" type="password" placeholder="password" v-model="password2"/>
+        </div>
       </div>
       <input class="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
     </form>
@@ -90,10 +91,6 @@ export default {
 .view0 p {
   font-family: "Roboto";
   font-size: 24px;
-}
-.alarm {
-  display: inline;
-  background-color: #f5a623;
 }
 
 .form-group label {

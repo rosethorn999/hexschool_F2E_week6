@@ -11,8 +11,9 @@
       </div>
       <div class="form-group" id="form-group-telphone">
         <label class="label-title">Phone</label>
-        <div class="telphoneDiv"><input type="telphone" placeholder="0912345678" v-model="telphone"/></div>
-        <!-- <div class="alarm" v-show="telphoneError">NUMBER ONLY</div> -->
+        <div :class="{telphoneDiv:telphoneError}">
+          <input type="telphone" placeholder="0912345678" v-model="telphone"/>
+        </div>
       </div>
       <div class="form-group" id="form-group-birthday">
         <label class="label-title">Birth Date(optional)</label>
@@ -34,8 +35,9 @@
         <select v-model="dist">
             <option v-for="(dist,index) in districts" :key="index" :value="index">{{dist}}</option>
         </select>
-        <div class="addressDiv"><input type="text" v-model="address" placeholder="detail address"/></div>
-         <!-- <div class="alarm" v-show="addressError">REQUIRED FILED</div> -->
+        <div :class="{addressDiv:addressError}">
+          <input type="text" v-model="address" placeholder="detail address"/>
+        </div>
       </div>
       <input class="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
     </form>
@@ -122,10 +124,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.alarm {
-  display: inline;
-  background-color: #f5a623;
-}
 .view1 h1 {
   margin-top: 54px;
   font-family: "Roboto";

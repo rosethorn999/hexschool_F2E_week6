@@ -6,25 +6,28 @@
     </p>
     <form class="form-area">
       <div class="form-group" id="form-group-CardNum">
-        <label>Card Number</label>
-        <div class="cardNumberDiv"><input type="text"  v-model="cardNumber" placeholder="1234567890123456"/></div>
-        <!-- <label>{{binCode}}</label> -->
-        <!-- <div class="alarm" v-show="cardNumberError">REQUIRED FIELD</div> -->
+        <label>Card Number ({{binCode}})</label>
+        <div :class="{cardNumberDiv:cardNumberError}">
+          <input type="text" v-model="cardNumber" placeholder="1234567890123456"/>
+        </div>
       </div>
       <div class="form-group" id="form-group-Cardholder">
         <label>Cardholder Name</label>
-        <div class="cardHolderDiv"><input type="text" v-model="cardHolder" placeholder="Elon Musk"/></div>
-        <!-- <div class="alarm" v-show="cardHolderError">REQUIRED FIELD</div> -->
+        <div :class="{cardHolderDiv:cardHolderError}">
+          <input type="text" v-model="cardHolder" placeholder="Elon Musk"/>
+        </div>
       </div>
       <div class="form-group" id="form-group-Bank">
         <label>Bank Name</label>
-        <div class="bankNameDiv"><input type="text" v-model="bankName"  placeholder="City Group"/></div>
-         <!-- <div class="alarm" v-show="bankNameError">REQUIRED FIELD</div> -->
+        <div :class="{bankNameDiv:bankNameError}">
+          <input type="text" v-model="bankName" placeholder="City Group"/>
+        </div>
       </div>
       <div class="form-group" id="form-group-CVV">
         <label>CVV</label>
-        <div class="CVVDiv"><input type="text" v-model="CVV" placeholder="123"/></div>
-        <!-- <div class="alarm" v-show="CVVError">MUST BE 3 CHARACTERS</div> -->
+        <div :class="{CVVDiv:CVVError}">
+          <input type="text" v-model="CVV" placeholder="123"/>
+        </div>
       </div>
       <div class="form-group" id="form-group-Date">
         <label>Expire Date</label>
@@ -143,12 +146,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.alarm {
-  display: block;
-  background-color: #f5a623;
-  width: 125px;
-}
-
 .view3 h1 {
   margin-top: 54px;
   font-family: "Roboto";
@@ -223,7 +220,7 @@ export default {
 #form-group-Date select {
   width: 33%;
 }
-.cardNumberDiv{
+.cardNumberDiv {
   position: relative;
 }
 .cardNumberDiv::before {
