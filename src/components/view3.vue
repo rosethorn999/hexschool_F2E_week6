@@ -7,24 +7,24 @@
     <form class="form-area">
       <div class="form-group" id="form-group-CardNum">
         <label>Card Number</label>
-        <input type="text"  v-model="cardNumber" placeholder="1234567890123456"/>
-        <label>{{binCode}}</label>
-        <div class="alarm" v-show="cardNumberError">REQUIRED FIELD</div>
+        <div class="cardNumberDiv"><input type="text"  v-model="cardNumber" placeholder="1234567890123456"/></div>
+        <!-- <label>{{binCode}}</label> -->
+        <!-- <div class="alarm" v-show="cardNumberError">REQUIRED FIELD</div> -->
       </div>
       <div class="form-group" id="form-group-Cardholder">
         <label>Cardholder Name</label>
-        <input type="text" v-model="cardHolder" placeholder="Elon Musk"/>
-        <div class="alarm" v-show="cardHolderError">REQUIRED FIELD</div>
+        <div class="cardHolderDiv"><input type="text" v-model="cardHolder" placeholder="Elon Musk"/></div>
+        <!-- <div class="alarm" v-show="cardHolderError">REQUIRED FIELD</div> -->
       </div>
       <div class="form-group" id="form-group-Bank">
         <label>Bank Name</label>
-        <input type="text" v-model="bankName"  placeholder="City Group"/>
-         <div class="alarm" v-show="bankNameError">REQUIRED FIELD</div>
+        <div class="bankNameDiv"><input type="text" v-model="bankName"  placeholder="City Group"/></div>
+         <!-- <div class="alarm" v-show="bankNameError">REQUIRED FIELD</div> -->
       </div>
       <div class="form-group" id="form-group-CVV">
         <label>CVV</label>
-        <input type="text" v-model="CVV" placeholder="123"/>
-        <div class="alarm" v-show="CVVError">MUST BE 3 CHARACTERS</div>
+        <div class="CVVDiv"><input type="text" v-model="CVV" placeholder="123"/></div>
+        <!-- <div class="alarm" v-show="CVVError">MUST BE 3 CHARACTERS</div> -->
       </div>
       <div class="form-group" id="form-group-Date">
         <label>Expire Date</label>
@@ -192,11 +192,13 @@ export default {
   display: inline-block;
   width: 45%;
   margin-right: 5%;
+  margin-top: 3%;
 }
 #form-group-Bank {
   box-sizing: border-box;
   display: inline-block;
   width: 50%;
+  margin-top: 3%;
 }
 #form-group-Cardholder input {
   /*margin-right: 5px;*/
@@ -210,11 +212,42 @@ export default {
   float: left;
   width: 32%;
   margin-right: 6px;
+  margin-top: 3%;
 }
 #form-group-CVV input {
   width: 100%;
 }
+#form-group-Date {
+  margin-top: 3%;
+}
 #form-group-Date select {
   width: 33%;
+}
+.cardNumberDiv{
+  position: relative;
+}
+.cardNumberDiv::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f556";
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  font-size: 22px;
+  z-index: 10;
+  line-height: 56px;
+  right: 20px;
+  color: #f5a623;
+}
+.cardNumberDiv::after {
+  content: "INVALID EMAIL";
+  position: absolute;
+  background-color: #f5a623;
+  border-radius: 5px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 5px;
+  height: 18px;
+  right: -130px;
 }
 </style>

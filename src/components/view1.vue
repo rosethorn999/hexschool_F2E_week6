@@ -11,8 +11,8 @@
       </div>
       <div class="form-group" id="form-group-telphone">
         <label class="label-title">Phone</label>
-        <input type="telphone" placeholder="0912345678" v-model="telphone"/>
-        <div class="alarm" v-show="telphoneError">NUMBER ONLY</div>
+        <div class="telphoneDiv"><input type="telphone" placeholder="0912345678" v-model="telphone"/></div>
+        <!-- <div class="alarm" v-show="telphoneError">NUMBER ONLY</div> -->
       </div>
       <div class="form-group" id="form-group-birthday">
         <label class="label-title">Birth Date(optional)</label>
@@ -34,8 +34,8 @@
         <select v-model="dist">
             <option v-for="(dist,index) in districts" :key="index" :value="index">{{dist}}</option>
         </select>
-        <input type="text" v-model="address" placeholder="detail address"/>
-         <div class="alarm" v-show="addressError">REQUIRED FILED</div>
+        <div class="addressDiv"><input type="text" v-model="address" placeholder="detail address"/></div>
+         <!-- <div class="alarm" v-show="addressError">REQUIRED FILED</div> -->
       </div>
       <input class="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
     </form>
@@ -141,7 +141,7 @@ export default {
 }
 #form-group-name {
   float: left;
-  width: 50%;
+  width: 49%;
 }
 
 #form-group-name input,
@@ -164,8 +164,8 @@ select {
   box-sizing: border-box;
 }
 #form-group-telphone {
-  float: right;
-  width: 50%;
+  float: left;
+  width: 49%;
 }
 #form-group-telphone input {
   width: 100%;
@@ -217,5 +217,46 @@ select {
   display: block;
   width: 100%;
   box-sizing: border-box;
+}
+.telphoneDiv,
+.addressDiv {
+  position: relative;
+}
+.telphoneDiv::before,
+.addressDiv::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f556";
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  font-size: 22px;
+  z-index: 10;
+  line-height: 56px;
+  right: 20px;
+  color: #f5a623;
+}
+.telphoneDiv::after {
+  content: "NUMBER ONLY";
+  position: absolute;
+  background-color: #f5a623;
+  border-radius: 5px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 5px;
+  height: 18px;
+  right: -140px;
+}
+.addressDiv::after {
+  content: "REQUIRED FILED";
+  position: absolute;
+  background-color: #f5a623;
+  border-radius: 5px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 5px;
+  height: 18px;
+  right: -140px;
 }
 </style>

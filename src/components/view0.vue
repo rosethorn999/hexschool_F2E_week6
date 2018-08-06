@@ -7,18 +7,20 @@
     <form class="form-area">
       <div class="form-group">
         <label>Account</label>
-        <input id="input-email" type="email" placeholder="example@eamil.com" v-model="mail"/>
-        <div class="alarm" v-show="mailError">INVALID EMAIL</div>
+        <div class="emailDiv"><input id="input-email" type="email" placeholder="example@eamil.com" v-model="mail"/>
+        <!-- <i class="far fa-angry"></i> -->
+        </div>
+        <!-- <div class="alarm" v-show="mailError">INVALID EMAIL</div> -->
       </div>
       <div class="form-group">
         <label>Password</label>
-        <input id="input-password" type="password" placeholder="password" v-model="password"/>
-        <div class="alarm" v-show="passwordError">MINIMUM 8 CHARACTERS</div>
+        <div class="passwordDiv"><input id="input-password" type="password" placeholder="password" v-model="password"/></div>
+        <!-- <div class="alarm" v-show="passwordError">MINIMUM 8 CHARACTERS</div> -->
       </div>
       <div class="form-group">
         <label>Comfirm Password</label>
-        <input id="input-password2" type="password" placeholder="password" v-model="password2"/>
-        <div class="alarm" v-show="password2Error">NOT MATCH</div>
+        <div class="password2Div"><input id="input-password2" type="password" placeholder="password" v-model="password2"/></div>
+        <!-- <div class="alarm" v-show="password2Error">NOT MATCH</div> -->
       </div>
       <input class="button" type="button" value="SUBMIT & NEXT" :disabled="formError" @click="send">
     </form>
@@ -111,5 +113,61 @@ input::placeholder {
   font-size: 20px;
   box-sizing: border-box;
   padding: 12px 20px;
+}
+.emailDiv,
+.passwordDiv,
+.password2Div {
+  position: relative;
+}
+
+.emailDiv::before,
+.passwordDiv::before,
+.password2Div::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f556";
+  display: inline-block;
+  vertical-align: middle;
+  position: absolute;
+  font-size: 22px;
+  z-index: 10;
+  line-height: 56px;
+  right: 20px;
+  color: #f5a623;
+}
+.emailDiv::after {
+  content: "INVALID EMAIL";
+  position: absolute;
+  background-color: #f5a623;
+  border-radius: 5px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 5px;
+  height: 18px;
+  right: -130px;
+}
+.passwordDiv::after {
+  content: "MINIMUM 8 CHARACTERS";
+  position: absolute;
+  background-color: #f5a623;
+  border-radius: 5px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 5px;
+  height: 18px;
+  right: -210px;
+}
+.password2Div::after {
+  content: "NOT MATCH";
+  position: absolute;
+  background-color: #f5a623;
+  border-radius: 5px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 5px;
+  height: 18px;
+  right: -110px;
 }
 </style>
