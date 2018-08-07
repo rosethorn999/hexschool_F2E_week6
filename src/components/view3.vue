@@ -13,19 +13,19 @@
       </div>
       <div class="form-group" id="form-group-Cardholder">
         <label>Cardholder Name</label>
-        <div :class="{cardHolderDiv:cardHolderError}">
+        <div>
           <input type="text" v-model="cardHolder" placeholder="Elon Musk"/>
         </div>
       </div>
       <div class="form-group" id="form-group-Bank">
         <label>Bank Name</label>
-        <div :class="{bankNameDiv:bankNameError}">
+        <div>
           <input type="text" v-model="bankName" placeholder="City Group"/>
         </div>
       </div>
       <div class="form-group" id="form-group-CVV">
         <label>CVV</label>
-        <div :class="{CVVDiv:CVVError}">
+        <div>
           <input type="text" v-model="CVV" placeholder="123"/>
         </div>
       </div>
@@ -96,41 +96,13 @@ export default {
       return ret;
     },
     formError: function() {
-      let error =
-        this.cardNumberError ||
-        this.cardHolderError ||
-        this.bankNameError ||
-        this.CVVError;
+      let error = this.cardNumberError;
       return error;
     },
     cardNumberError: function() {
       let ret = true;
       let v = this.cardNumber;
       if (v !== "") {
-        ret = false;
-      }
-      return ret;
-    },
-    cardHolderError: function() {
-      let ret = true;
-      let v = this.cardHolder;
-      if (v !== "") {
-        ret = false;
-      }
-      return ret;
-    },
-    bankNameError: function() {
-      let ret = true;
-      let v = this.bankName;
-      if (v !== "") {
-        ret = false;
-      }
-      return ret;
-    },
-    CVVError: function() {
-      let ret = true;
-      let v = this.CVV;
-      if (v.length === 3) {
         ret = false;
       }
       return ret;
