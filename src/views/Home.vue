@@ -95,6 +95,16 @@ export default {
 }
 select {
   -webkit-appearance: none;
+  font-size: 20px;
+  box-sizing: border-box;
+  padding: 12px 20px;
+}
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  font-size: 20px;
+  box-sizing: border-box;
+  padding: 12px 20px;
 }
 </style>
 

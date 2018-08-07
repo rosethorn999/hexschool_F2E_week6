@@ -157,9 +157,7 @@ select {
   background: #ffffff;
   border: 2px solid #000000;
   border-radius: 8px;
-  padding: 12px 20px 16px;
   margin-right: 15px;
-  box-sizing: border-box;
 }
 #form-group-telphone {
   float: left;

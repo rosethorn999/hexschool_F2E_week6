@@ -106,11 +106,6 @@ export default {
   border-radius: 8px;
   border: 2px solid #000;
 }
-input::placeholder {
-  font-size: 20px;
-  box-sizing: border-box;
-  padding: 12px 20px;
-}
 .emailDiv,
 .passwordDiv,
 .password2Div {

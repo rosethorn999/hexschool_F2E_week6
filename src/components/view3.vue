@@ -141,13 +141,10 @@ export default {
   background: #ffffff;
   border: 2px solid #000000;
   border-radius: 8px;
-  padding: 12px 20px 16px;
-  font-size: 20px;
   color: #999999;
   letter-spacing: 0;
   text-align: left;
   line-height: 24px;
-  box-sizing: border-box;
 }
 #form-group-CardNum {
   box-sizing: border-box;
