@@ -34,12 +34,19 @@ export default {
     return {
       indexOfImage: 0,
       isOverSize: [false, false, false],
+      images: ["", "", ""],
       onDragover: false
     };
   },
   computed: {
     formError: function() {
-      return this.indexOfImage === 0 || this.isOverSizeFull;
+      let noImage = true;
+      for (let i = 0; i < this.images.length; i++) {
+        if (this.images[i] !== "") {
+          noImage = false;
+        }
+      }
+      return this.indexOfImage === 0 || this.isOverSizeFull || noImage;
     },
     isOverSizeFull: function() {
       for (let i = 0; i < this.isOverSize.length; i++) {
@@ -55,6 +62,7 @@ export default {
       this.$set(this.isOverSize, i, false);
       document.querySelector("#preview" + i).src =
         "http://via.placeholder.com/140x140";
+      this.indexOfImage -= 1;
     },
     send: function() {
       this.$emit("goNext");
@@ -88,6 +96,7 @@ export default {
         var reader = new FileReader();
         reader.onload = (function(theFile) {
           return function(e) {
+            that.images[that.indexOfImage] = e.target.result;
             document.querySelector("#preview" + that.indexOfImage).src =
               e.target.result;
             that.indexOfImage++;
